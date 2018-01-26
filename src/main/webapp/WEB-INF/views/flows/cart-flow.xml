@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+	<var name="cart" class="com.charliebrown.CharlieBrownsController" />
+
+	<action-state id="addCartToOrder">
+        <evaluate expression="cart.LoginTest()" result="cart" />
+        <transition to="viewItemsInCart" on="true" />
+        <transition to="pleaselogin" on="false" />
+    </action-state>
+    
+    <view-state id="pleaselogin" view="/WEB-INF/views/loginpage.jsp">
+		<transition to="run" on="goToCart" />		
+	</view-state>
+	
+	<view-state id="viewItemsInCart" view="/WEB-INF/views/flows/cart1.jsp">
+		<transition to="ViewAllProducts" on="ViewAllProducts" />
+		<transition to="BillingDetail" on="BillingDetail" />		
+	</view-state>
+	
+	<view-state id="ViewAllProducts" view="/WEB-INF/views/index.jsp">		
+	</view-state>
+	
+	<view-state id="BillingDetail" view="/WEB-INF/views/flows/cart2.jsp">
+		<transition to="viewItemsInCart" on="ViewCart" />
+		<transition to="ShippingDetail" on="ShippingDetail" />		
+	</view-state>
+	
+	<view-state id="ShippingDetail" view="/WEB-INF/views/flows/cart3.jsp">
+		<transition to="BillingDetail" on="BillingDetail" />
+		<transition to="OrderSubmit" on="OrderSubmit" />		
+	</view-state>
+	
+	<end-state id="OrderSubmit" view="/WEB-INF/views/flows/cart4.jsp"/>
+	
+</flow>

@@ -1,0 +1,10 @@
+com\charliebrown\profiles\Profiles.class
+com\charliebrown\CharlieBrownsController.class
+com\charliebrown\profiles\ProfilesDAO.class
+com\charliebrown\categories\CategoriesImpl.class
+com\charliebrown\products\ProductsDAO.class
+com\charliebrown\profiles\ProfilesImpl.class
+com\charliebrown\products\ProductsImpl.class
+com\charliebrown\categories\Categories.class
+com\charliebrown\categories\CategoriesDAO.class
+com\charliebrown\products\Products.class
